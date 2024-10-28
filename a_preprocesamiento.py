@@ -24,7 +24,10 @@ img1.shape
 img1.max() ### máximo valor de intensidad en un pixel
 img1.min() ### mínimo valor de intensidad en un pixel
 
-############################### Reescalar imagenes ########################################
+
+######################### Reescalar todas las imagenes #####################################
+######################### a la que menor resoluciòn tenga ##################################
+
 
 # Para saber que imagen tiene menor resolución y proceder a reescalar las demás
 
@@ -49,3 +52,26 @@ print(f"Resolución menor encontrada: {resolucion_menor} en la imagen: {imagen_m
 fn.reescalar_imagenes(imagenes_train, resolucion_menor)
 fn.reescalar_imagenes(imagenes_test, resolucion_menor)  
 
+
+######################### Convertir salidas a numpy array #####################################
+
+ # Reescalar según la menor resolución
+x_train, y_train, _ = fn.img2data(imagenes_train, resolucion=resolucion_menor)  
+x_test, y_test, _ = fn.img2data(imagenes_test, resolucion=resolucion_menor)   
+
+# Convertir las listas a arrays de NumPy
+x_train = np.array(x_train)
+y_train = np.array(y_train)
+x_test = np.array(x_test)
+y_test = np.array(y_test)
+
+
+x_train.shape
+x_test.shape
+
+####################### Salidas del preprocesamiento bases listas #############################
+
+# joblib.dump(x_train, "salidas/x_train.pkl")
+# joblib.dump(y_train, "salidas/y_train.pkl")
+# joblib.dump(x_test, "salidas/x_test.pkl")
+# joblib.dump(y_test, "salidas/y_test.pkl")
