@@ -49,8 +49,8 @@ else:
 print(f"Resolución menor encontrada: {resolucion_menor} en la imagen: {imagen_menor}")
 
 # Reescalar todas las imágenes a la resolución de la imagen con menor resolución
-fn.reescalar_imagenes(imagenes_train, resolucion_menor)
-fn.reescalar_imagenes(imagenes_test, resolucion_menor)  
+#fn.reescalar_imagenes(imagenes_train, resolucion_menor)
+#fn.reescalar_imagenes(imagenes_test, resolucion_menor)  
 
 
 ######################### Convertir salidas a numpy array #####################################
@@ -71,7 +71,8 @@ x_test.shape
 
 ####################### Salidas del preprocesamiento bases listas #############################
 
-# joblib.dump(x_train, "salidas/x_train.pkl")
-# joblib.dump(y_train, "salidas/y_train.pkl")
-# joblib.dump(x_test, "salidas/x_test.pkl")
-# joblib.dump(y_test, "salidas/y_test.pkl")
+
+joblib.dump(x_train, "salidas/x_train.pkl")
+joblib.dump(y_train, "salidas/y_train.pkl")
+joblib.dump(x_test, "salidas/x_test.pkl")
+joblib.dump(y_test, "salidas/y_test.pkl")
